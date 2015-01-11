@@ -21,7 +21,12 @@
 \begin{document}
     \frontmatter % Halaman dengan penomoran romawi kecil
     \maketitle
-    %\legalityPaper % Lembar Pengesahan
+    \legalityPaper % Lembar Pengesahan
+    \begin{abstrak}
+    	Dokumen ini merupakan dokumen contoh penggunaan templat \LaTeX{} untuk pembuatan Buku Tugas Akhir ITS. \\
+    	
+    	\noindent \textbf{Kata-Kunci}: \LaTeX{}, templat, Tugas Akhir, ITS.
+	\end{abstrak}
     \chapter{Kata Pengantar}
         \textbf{Om Swastyastu}
 
@@ -112,6 +117,14 @@
 			\caption{hello\_world.pdf}
 			\label{gambarHelloWorldPDF}
 		\end{figure}
+		
+		\subsection{Struktur Kode \LaTeX}
+		Secara umum, struktur kode berkas .tex dibagi menjadi dua bagian:
+		
+		\begin{itemize}
+			\item \textbf{Preambule}, merupakan bagian yang berada sebelum \texttt{\textbackslash{}begin\{document\}} dilakukan. Pada bagian ini, biasanya diawali dengan deklarasi \texttt{\textbackslash{}documentclass} (dibahas selanjutnya) dan deklarasi impor paket tambahan yang dibutuhkan (melalui \texttt{\textbackslash{}usepackage\{\}}).
+			\item \textbf{Dokumen} merupakan bagian yang diawali dengan \texttt{\textbackslash{}begin\{document\}} dan diakhiri dengan \texttt{\textbackslash{}end\{document\}}. Pada bagian inilah Anda mengisi konten dari dokumen Anda secara berurutan per halamannya.
+		\end{itemize}
         
         \subsection{Kelas Dokumen Bawaan}
         
@@ -119,11 +132,94 @@
         
         \LaTeX{} sendiri memiliki beberapa templat bawaan :
         \begin{itemize}
+        	\item \textbf{article}: templat untuk artikel ilmiah.
+        	\item \textbf{book}: templat untuk penulisan buku, terdapat struktur dokumen layaknya buku seperti \texttt{part} dan \texttt{chapter}.
+        	\item \textbf{report}: seperti templat \textbf{book} tapi tidak memiliki pembagian halaman awal, halaman isi dan lampiran.
+        	\item \textbf{letter}: untuk penulisan dokumen tanpa struktur di dalamnya.
+        	
+        \end{itemize}
+        Anda dapat menambahkan beberapa opsi pada templat yang Anda pilih dengan menambahkan argumen opsional (menggunakan kurung siku) pada deklarasi \texttt{\textbackslash{}documentclass}. Misalnya, jika Anda ingin membuat dokumen buku dengan ukuran kertas A5 dengan ukuran fonta 11pt (seperti Buku TA), Anda bisa membuat deklarasi sebagai berikut:
         
+        \texttt{\textbackslash{}documentclass[a5paper,11pt]\{book\}}
+        
+        Selain templat bawaan \LaTeX, terdapat beberapa templat yang disediakan oleh komunitas:
+        
+        \begin{itemize}
+        	\item \textbf{IEEEtran} merupakan templat untuk menulis jurnal dalam format IEEE. Bisa digunakan juga untuk pengiriman jurnal ilmiah POMITS. (Contoh pada Gambar \ref{gambarIEEEtran})
+        	\item \textbf{beamer} merupakan templat untuk membuat \emph{slide} presentasi. (Contoh pada Gambar \ref{gambarBeamer})
+        	\item \textbf{a0poster} merupakan templat untuk membuat dokumen dengan ukuran kertas yang besar, seperti poster.
+        	\item \textbf{memoir} merupakan sekumpulan templat untuk kebutuhan penulisan buku fiksi maupun non-fiksi.
+        	\item \textbf{moderncv} untuk penulisan Curriculum Vitae.
+        	\item dan masih banyak lagi.
         \end{itemize}
         
+        \begin{figure}[h]
+        	\centering
+        	\includegraphics[width=\linewidth]{contoh_img/IEEETran}
+        	\caption{Contoh penggunaan templat IEEETran}
+        	\label{gambarIEEEtran}
+        \end{figure}
+        
+        \begin{figure}[h]
+        	\centering
+        	\includegraphics[width=\linewidth]{contoh_img/beamer}
+        	\caption{Contoh penggunaan templat beamer}
+        	\label{gambarBeamer}
+        \end{figure}
+
+        
         \section{Cara Menggunakan Templat \texttt{ta-its}}
+        Berkas \texttt{ta-its.cls} yang disertakan pada templat ini merupakan bagian utama dari templat Buku TA ITS yang siap untuk digunakan. Untuk menggunakan templat ini, salinlah berkas \texttt{ta-its.cls} dan direktori \texttt{img/} (berisi berkas sampul) ke direktori di mana Anda akan menulis Buku TA Anda. Kemudian gunakan templat ini sebagai kelas dokumen melalui deklarasi sebagai berikut pada Preambule :
+        
+        \texttt{\textbackslash{}documentclass\{buku-ta\}}
+        
+        Templat ini tidak menerima argumen tambahan apapun untuk saat ini. Selanjutnya, Anda wajib mendeklarasikan Judul, Pengarang, Dosen Pembimbing dan Jurusan juga pada bagian Preambule. Formatnya adalah sebagai berikut :
+        
+        \begin{itemize}
+        	\item \texttt{\textbackslash{}title\{Judul TA dalam Bahasa Indonesia\}\{Judul TA dalam Bahasa Inggris\}}
+        	\item \texttt{\textbackslash{}author\{Nama Penulis\}\{NRP Penulis\}}
+        	\item \texttt{\textbackslash{}degree\{Nama Gelar\}\{Bidang Studi\}\{Program Studi\}\{Jurusan\}\{Jurusan (English)\}\{Fakultas\}\{Fakultas Singkatan\}\{Fakultas (English)\}}
+        	\item \texttt{\textbackslash{}time\{Bulan Pembuatan\}\{Tahun Pembuatan\}}
+        \end{itemize}
+        
+        Kemudian pada bagian isi, templat ini menawarkan beberapa fungsi untuk pembuatan elemen buku secara otomatis, antara lain :
+        
+        \begin{itemize}
+        	\item \texttt{\textbackslash{}maketitle} digunakan untuk membuat sampul dalam tiga halaman: Sampul Depan, Sampul Tengah, Sampul Tengah Bahasa Inggris.
+        	\item \texttt{\textbackslash{}legalityPaper} untuk membuat halaman pengesahan.
+        	\item Environment \texttt{abstrak} dan \texttt{abstract} untuk penulisan Abstrak dalam Bahasa Indonesia dan Inggris.
+        \end{itemize}
+        
+        Contoh penggunaan dapat Anda lihat pada berkas \texttt{contoh.tex}.
+        
+        Dengan menggunakan templat ini, Anda akan menghemat waktu Anda untuk membuat sampul dan halaman pengesahan yang kadang bisa membuat kerepotan dalam hal pengaturan posisi indentasinya.
+        
         \section{Struktur Dokumen \LaTeX{}}
+        Dokumen \LaTeX{} terdiri dari struktur yang dibuat berdasarkan struktur dokumen sehari-hari. Sebagai penulis dokumen, Anda wajib menggunakan struktur ini sehingga \LaTeX{} dapat melakukan hal lain yang membantu Anda dalam mengorganisir dokumen seperti misalnya pembuatan Daftar Isi. Berikut adalah struktur dokumen yang ada di \LaTeX{} diurutkan berdasarkan hirarkinya.
+        
+        \begin{ltabulary}{|L|L|} % L = Rata kiri untuk setiap kolom, | = garis batas vertikal.
+        	
+        	% Kepala tabel, berulang di setiap halaman
+        	\caption{Struktur hirarki dokumen \LaTeX{}} \label{tabelStrukturDokumen} \\
+        	\hline
+        	\textbf{Nama} & \textbf{Peruntukkan} \\ \hline
+        	
+        	\endhead
+        	\endfoot
+        	\endlastfoot
+        	
+        	% Isi Tabel
+        	\textbf{\textbackslash{}part\{Judul Bagian\}} & \texttt{book} \\ \hline
+        	\textbf{\textbackslash{}chapter\{Judul Bab\}} & \texttt{book} dan \texttt{report} \\ \hline
+        	\textbf{\textbackslash{}section\{Judul Subbab\}} & semua kecuali \texttt{letter} \\ \hline
+        	\textbf{\textbackslash{}subsection\{Judul Subsubbab\}} & semua kecuali \texttt{letter} \\ \hline
+        	\textbf{\textbackslash{}subsubsection\{Judul Subsubsubbab\}} & semua kecuali \texttt{letter} \\ \hline
+        	\textbf{\textbackslash{}paragraph\{Judul Paragraf\}} & semua\\ \hline
+        	
+        \end{ltabulary}
+        
+        Untuk templat pihak ketiga, Anda dapat melihat dokumentasi dari templat bersangkutan. Sebagai informasi, templat \texttt{ta-its} dibuat berdasarkan templat \texttt{book} sehingga struktur dokumennya sama.
+        
         \section{Paragraph dan Teks}
         \section{Daftar}
         \section{Gambar}

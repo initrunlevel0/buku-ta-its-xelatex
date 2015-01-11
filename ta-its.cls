@@ -68,9 +68,9 @@
 \RequirePackage{titlesec}
     \titleformat{\chapter}[display]{\filcenter\fontsize{11}{11}\bfseries}{\chaptername \ \thechapter}{11pt}{\filcenter\fontsize{11}{11}\bfseries\uppercase}
     \titlespacing*{\chapter}{0pt}{-50pt}{40pt}
-    \titlespacing*{\section}{0pt}{11pt}{0pt}
-    \titlespacing*{\subsection}{0pt}{11pt}{0pt}
-    \titlespacing*{\subsubsection}{0pt}{11pt}{0pt}
+    %\titlespacing*{\section}{0pt}{11pt}{0pt}
+    %\titlespacing*{\subsection}{0pt}{11pt}{0pt}
+    %\titlespacing*{\subsubsection}{0pt}{11pt}{0pt}
     \titleformat*{\section}{\fontsize{11}{11}\bfseries}
     \titleformat*{\subsection}{\fontsize{11}{11}\bfseries}
     \titleformat*{\subsubsection}{\fontsize{11}{11}\bfseries}
@@ -283,7 +283,7 @@ Pembimbing I  & : \pembimbingSatu
 \end{tabular}
 \\*[20pt]
 \begin{centering}
-\textbf{Abstract}
+\textbf{Abstrak}
 \end{centering}\\
 }{}
 
