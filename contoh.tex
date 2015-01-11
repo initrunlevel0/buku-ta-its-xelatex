@@ -1,4 +1,6 @@
 \documentclass{ta-its}
+\usepackage{hyperref} % Hyperlink pada dokumen
+\usepackage{listings} % Kode sumber
 
 % \title{Judul Bahasa Indonesia}{Judul Bahasa Inggris}
 \title{Templat \LaTeX{} untuk Kebutuhan Penulisan Buku Tugas Akhir di ITS Surabaya}{A \LaTeX{} Template for Setting Up a Final Project Booklet for ITS Surabaya}{Kxxxxx} 
@@ -43,15 +45,83 @@
         \section{Latar Belakang}
             Tidak dipungkuri lagi, dunia komputer sangat berkembang pesat semenjak ditemukannya kakas perhitungan dan kalkulasi canggih ini di abad 21. Komputer bukan hanya sekedar kakas bantu kalkulasi matematika semata, namun juga merupakan alat yang membantu manusia untuk segala hal dalam kehidupannya. Salah satu kegunaan komputer di masa modern saat ini adalah membantu pengguna dalam menyiapkan dokumen teks dari proses penulisan draf, penyuntingan dan penyetakan hasil final menggunakan teknologi yang disebut dengan \emph{word processing}.
             
-            Teknologi \emph{word-processing} berkembang semenjak 
         \section{Rumusan Masalah}
         \section{Tujuan}
         \section{Manfaat}
     
     \chapter{PEMBAHASAN}
         \section{Instalasi \LaTeX{}}
+        \LaTeX{} merupakan paket perangkat lunak \emph{cross-platform} yang dapat dipasang di tiga sistem operasi yang umum digunakan saat ini: Windows, Mac OS dan Linux. Karena \LaTeX{} terdiri dari berbagai banyak komponen yang terkait satu sama lain, maka pemasangannya pada komputer umumnya melalui apa yang disebut dengan distribusi \TeX{}. Salah satu distribusi yang umum digunakan adalah paket distribusi \TeX{} Live yang berisikan paket \TeX, \LaTeX, Xe\TeX dengan berbagai paket dan templat pendukung. Selain itu, di Windows terdapat paket bernama Mik\TeX yang memiliki fitur pemasangan paket otomatis dari Internet jika paket yang dibutuhkan belum terpasang.
+
+        Untuk penulisan dokumen \LaTeX sendiri, Anda bisa menggunakan berbagai jenis editor mulai dari teks editor sederhana seperti Notepada hingga editor yang rumit dan menyertakan fitur WYSIWYG (What You See Is What You Get) untuk melihat secara waktu-nyata hasil dokumen \LaTeX{} layaknya menggunakan perangkat lunak pemrosesan kata modern. Penulis sendiri menyarankan Anda untuk belajar dari teks editor sederhana dan membiasakan diri dengan sintaks penulisannya agar tidak tergantung pada kakas penyunting teks tertentu.
+
+        Sub-bab ini membahas mengenai cara pemasangan distribusi \TeX{} pada tiga sistem operasi. 
+
+        \subsection{Windows}
+        Cara mudah untuk memasang distribusi \LaTeX di Windows adalah dengan menggunakan paket Mik\TeX{}. Anda dapat mengunduh kakas pemasang (\emph{installer}) Mik\TeX{} melalui pranala \url{http://miktex.org/download}.  Pemasang berukuran sekitar 200 MB dan terdiri dari beberapa paket dasar saja (dengan sebuah kakas editor bantu bernama \TeX{}works). Jika dokumen ingin dikompilasi menggunakan paket yang belum terpasang, Mik\TeX akan secara otomatis menguduhnya dari Internet sehingga Anda tidak perlu khawatir untuk memasang paket secara manual.
+        
+        
+        Selain pemasang pada pranala di atas, Mik\TeX juga menyediakan paket lengkap berupa DVD yang berisi semua paket LaTeX yang terdaftar di CTAN. Namun sayangnya, DVD tersebut tidak tersedia melalui pengunduhan secara bebas. Anda dapat menghubungi penulis jika berminat mendapatkan DVD ini.
+        
+        
+        \subsection{Linux}
+        
+        Sistem operasi Linux umumnya menyediakan cara yang mudah untuk memasang paket \TeX{} Live. Jika Anda menggunakan Ubuntu, Anda dapat memasang paket ini secara penuh melalui perintah \texttt{sudo apt-get install texlive-full}. Jika Anda hanya memasang paket dasar saja, Anda dapat memasang paket \texttt{texlive} saja (tanpa ada embel-embel apapun).
+        
+        \subsection{Mac OS X}
+        Pengguna Mac OS dapat menggunakan paket Mac\TeX yang tersedia melalui pranala \url{https://tug.org/mactex/}. Paket berukuran 2,4GB ini sudah lebih dari cukup untuk penulisan dokumen La\TeX{} dasar.
+        
+        
         \section{\texttt{Hello World} menggunakan \LaTeX{}}
-        \section{Filosofi \LaTeX{}}
+        Pembuatan dokumen La\TeX mungkin sangat rumit bagi pemula karena membutuhkan penggunaan antarmuka teks (Command Line Interface) pada sistem operasi untuk memanggil \emph{compiler}. Jika Anda tidak ingin bersusah payah dalam hal ini, Anda dapat langsung menggunakan editor yang memang sudah terdedikasi untuk pembuatan dokumen \TeX{}. Editor yang saya sarankan dalam hal ini adalah \TeX{}studio yang tersedia untuk tiga sistem operasi (Unduh melalui \url{http://texstudio.sourceforge.net/}). Tangkapan layar dari aplikasi ini dapat dilihat pada Gambar \ref{gambarTexStudio}.
+        
+        \begin{figure}[h] % h = pasti berada di bawah teks yang ada di atas
+			\centering
+			\includegraphics[width=\linewidth]{contoh_img/texstudio}
+			\caption{Tangkapan Layar \TeX{}studio}
+			\label{gambarTexStudio}
+		\end{figure}
+
+        Jika sudah siap, silahkan membuka teks editor favorit Anda dan mulai menulis beberapa bagian teks seperti pada Gambar \ref{kodeHelloWorld}. Anda boleh menggunakan atau tidak indentasi pada setiap elemen. Penggunaan indentasi dalam hal ini bermaksud untuk memudahkan pembacaan struktur dokumen. Simpan berkas tersebut ke dalam berkas bernama "hello\_world.tex".
+        
+        \begin{figure}[h]
+	        \lstinputlisting[language=TeX]{contoh_src/hello_world.tex}
+	        \caption{Artikel Hello World}
+	        \label{kodeHelloWorld}
+        \end{figure}
+        
+        \subsection{Kompilasi Dokumen}
+        
+        Untuk memroses kode ke dokumen, Anda dapat menggunakan menu \texttt{Tools | Build and View (F1)} pada \TeX{}studio atau memanggil perintah berikut pada antarmuka teks (jika Anda sudah terbiasa dan pastikan berada pada direktori yang tepat) :
+        
+        \texttt{latex hello\_world.tex}
+        
+        Setelah beberapa pesan kompilasi muncul, Anda dapat membuka berkas "hello\_world.dvi" yang merupakan dokumen hasil kompilasi.
+        
+        Jika Anda ingin membuat dokumen dalam format PDF, Anda dapat menggunakan kompilator bernama \texttt{pdflatex}. Hasilnya dapat dilihat pada Gambar \ref{gambarHelloWorldPDF} Kompilator bawaan dapat Anda ubah dalam \TeX{}studio melalui menu \texttt{Options | Configure TeX Studio | Build | Default Compiler}. Untuk lebih jelasnya, distribusi \TeX atau \LaTeX umumnya memiliki kompilator sebagai berikut :
+        
+        \begin{itemize}
+	        \item \textbf{\LaTeX} merupakan kompilator bawaan untuk \LaTeX yang merupakan pengembangan dari \TeX{} (dikembangkan oleh Donald Knuth). Fitur utama \LaTeX{} antara lain: pilihan kelas dokumen dan adanya strukturisasi dokumen.
+	        \item \textbf{pdf\LaTeX} merupakan pengembangan dari \LaTeX yang akan menghasilkan luaran dalam bentuk PDF ketimbang DVI.
+	        \item \textbf{Xe\LaTeX} merupakan pengembangan dari \LaTeX dengan dukungan fonta berbasis TrueType. Templat Buku TA ini menggunakan Xe\LaTeX agar dapat menggunakan fonta \textbf{Times New Roman} bawaan dari Windows.
+        \end{itemize} 
+         
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=\linewidth]{contoh_img/hello_world.pdf.png}
+			\caption{hello\_world.pdf}
+			\label{gambarHelloWorldPDF}
+		\end{figure}
+        
+        \subsection{Kelas Dokumen Bawaan}
+        
+        Anda tidak seharusnya memikirkan bagaimana templat dan tata letak dokumen Anda di \LaTeX{} jika Anda memang fokus untuk menulis dokumen. Filosofi di \LaTeX{} menegaskan bahwa Anda memang harus fokus terhadap isi konten daripada terdistraksi dengan bagaimana wujud dokumen ketika dicetak. Untuk tujuan ini, \LaTeX{} beserta para komunitas menyediakan banyak templat untuk banyak keperluan yang bisa digunakan oleh pengguna sehingga mereka bisa langsung fokus mengisi konten dari dokumen mereka. Jenis templat ini dapat Anda pilih pada bagian \texttt{\textbackslash{}documentclass\{\textbf{nama-templat}\}}.
+        
+        \LaTeX{} sendiri memiliki beberapa templat bawaan :
+        \begin{itemize}
+        
+        \end{itemize}
+        
         \section{Cara Menggunakan Templat \texttt{ta-its}}
         \section{Struktur Dokumen \LaTeX{}}
         \section{Paragraph dan Teks}
