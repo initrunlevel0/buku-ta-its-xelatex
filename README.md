@@ -4,7 +4,7 @@ Templat ini saya buat sebagai bentuk kontribusi saya untuk mendorong penggunaan 
 
 ## Cara Penggunaan
 
-Tempatkan berkas ta-its.cls dan direktori img/ pada berkas kerja buku TA Anda. Silahkan lihat berkas contoh.tex untuk referensi cara penggunaannya.
+Tempatkan berkas ta-its.cls dan direktori img/ pada berkas kerja buku TA Anda. Silahkan lihat berkas contoh.tex untuk referensi cara penggunaannya. Berkas harus dikompilasi dengan "xelatex" dan komputer harus terpasang fonta Times New Roman dan Trebuchet MS.
 
 ## Fitur
 
