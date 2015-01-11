@@ -1,20 +1,14 @@
-buku-ta-its-xelatex
-===================
+# Templat Buku Tugas Akhir untuk Institut Teknologi Sepuluh Nopember (ITS) Surabaya
 
-Templat Buku Tugas Akhir ITS Surabaya menggunakan Xelatex.
+Templat ini saya buat sebagai bentuk kontribusi saya untuk mendorong penggunaan dokumen berbasis LaTeX dalam hal penulisan dokumen ilmiah. Templat saya sederhanakan sehingga para penulis Buku Tugas Akhir dapat fokus ke dalam konten buku itu sendiri daripada bentuk akhirnya, sesuai dengan filosofi dari LaTeX sendiri.
 
-Penggunaan masih difokuskan kepada Jurusan Teknik Informatika (Dengan adanya penggunaan dua pembimbing, dan paket khusus untuk menampilkan kode program).
+## Cara Penggunaan
 
-# Fitur
+Tempatkan berkas ta-its.cls dan direktori img/ pada berkas kerja buku TA Anda. Silahkan lihat berkas contoh.tex untuk referensi cara penggunaannya.
 
-* Sampul sesuai dengan standar (close enough lah)
-* Bab awal untuk Lembar Pengesahan, Abstrak, Kata Pengantar, Daftar Isi, Daftar Tabel dan Daftar Gambar
-* Bab isi dari 1 - 6
-* Daftar Pustaka [TODO]
-* Lampiran [TODO]
-* Cetak miring otomatis istilah asing
-* Pemenggalan kata untuk Bahasa Indonesia (Thx Andreas Febrian dari UI) [0]
-* Kode program warna-warni 
+## Fitur
 
-[0] http://komunitas.ui.ac.id/mod/groups/topicposts.php?topic=12949&group_guid=1572
-
+* Fonta, Margin, dan Tata Letak disesuaikan dengan aturan Buku TA ITS saat ini.
+* Sampul Tugas Akhir.
+* Lembar Pengesahan.
+* Implementasi ltabulary untuk tabel multi-halaman dengan ukuran kolom yang bisa menyesuaikan secara otomatis.
