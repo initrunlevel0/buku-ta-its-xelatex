@@ -27,10 +27,34 @@
 \RequirePackage{fancyhdr}
     \fancyhf{}
     \renewcommand{\headrulewidth}{0pt}
-    \lhead[\thepage]{}
-    \rhead[]{\thepage}
-    \pagestyle{fancy}
-    
+	\fancypagestyle{front}{%
+		\fancyhf{}
+		\cfoot{\thepage}
+	}
+	\fancypagestyle{main}{%
+		\fancyhf{}
+		\lhead[\thepage]{}
+		\rhead[]{\thepage}
+	}
+
+\makeatletter
+\renewcommand\frontmatter{%
+	\cleardoublepage
+	\@mainmatterfalse
+	\pagestyle{front}
+	\pagenumbering{roman}}
+
+\renewcommand\mainmatter{%
+	\cleardoublepage
+	\@mainmattertrue
+	\pagestyle{main}
+	\fancypagestyle{plain}{%
+		\fancyhf{}
+		\rfoot[]{\thepage}
+	}
+	\pagenumbering{arabic}}
+\makeatother
+
 \RequirePackage[hypcap=true]{caption}
     \captionsetup{labelfont=bf, justification=justified, singlelinecheck=false, format=plain}
 
@@ -113,7 +137,7 @@
      \begin{center}
      \emph{Halaman ini sengaja dikosongkan}
      \end{center}
-     \newpage%    
+     \newpage%
 }%
 \def\cleardoublepage{%
         \clearpage%
@@ -278,7 +302,7 @@
 Nama  & : \MakeUppercase{\penulis} \\
 NRP & : \nrp \\
 Jurusan  & : \jurusan \fakultasSingkatan \\
-Pembimbing I  & : \pembimbingSatu 
+Pembimbing I  & : \pembimbingSatu
 \ifdef{\pembimbingDua}{\\Pembimbing II  & : \pembimbingDua}{}
 \end{tabular}
 \\*[20pt]
@@ -298,7 +322,7 @@ Pembimbing I  & : \pembimbingSatu
 Name  & : \MakeUppercase{\penulis} \\
 NRP & : \nrp \\
 Major  & : \jurusanEnglish \fakultasSingkatan \\
-Supervisor I  & : \pembimbingSatu 
+Supervisor I  & : \pembimbingSatu
 \ifdef{\pembimbingDua}{\\Supervisor II  & : \pembimbingDua}{}
 \end{tabular}
 \\*[20pt]
