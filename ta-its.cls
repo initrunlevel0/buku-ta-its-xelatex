@@ -171,8 +171,8 @@
 }
 
 \newcommand{\supervisorTwo}[2]{
-\renewcommand{\pembimbingDua}{#1}%
-\renewcommand{\nipPembimbingDua}{#2}%
+\newcommand{\pembimbingDua}{#1}%
+\newcommand{\nipPembimbingDua}{#2}%
 }
 
 \newcommand{\degree}[8]{
