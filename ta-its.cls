@@ -11,6 +11,8 @@
 \RequirePackage{eso-pic}
 \RequirePackage[bahasa]{babel}
 
+% Indent paragraf setelah section
+\RequirePackage{indentfirst}
 
 \RequirePackage{enumitem}
     \setlist{nolistsep}
