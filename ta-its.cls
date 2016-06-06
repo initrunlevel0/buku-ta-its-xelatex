@@ -50,10 +50,6 @@
 	\cleardoublepage
 	\@mainmattertrue
 	\pagestyle{main}
-	\fancypagestyle{plain}{%
-		\fancyhf{}
-		\rfoot[]{\thepage}
-	}
 	\pagenumbering{arabic}}
 \makeatother
 
@@ -297,7 +293,7 @@
 \newenvironment{abstrak}{
 \addcontentsline{toc}{chapter}{ABSTRAK}
 \begin{centering}
-\textbf{\MakeUppercase{\judul}}
+\textbf{\MakeUppercase{\judul}} \\*[11pt]%
 \end{centering}
 
 \begin{tabular}{ll}
@@ -309,15 +305,15 @@ Pembimbing I  & : \pembimbingSatu
 \end{tabular}
 \\*[20pt]
 \begin{centering}
-\textbf{Abstrak}
-\end{centering}\\
+\textbf{Abstrak} \\*[11pt]%
+\end{centering}
 }{}
 
 % abstract
 \newenvironment{abstract}{
 \addcontentsline{toc}{chapter}{ABSTRACT}
 \begin{centering}
-\textbf{\MakeUppercase{\judulEnglish}}
+\textbf{\MakeUppercase{\judulEnglish}} \\*[11pt]%
 \end{centering}
 
 \begin{tabular}{ll}
@@ -329,8 +325,8 @@ Supervisor I  & : \pembimbingSatu
 \end{tabular}
 \\*[20pt]
 \begin{centering}
-\textbf{Abstract}
-\end{centering}\\
+\textbf{Abstract} \\*[11pt]%
+\end{centering}
 }{}
 
 \endinput
