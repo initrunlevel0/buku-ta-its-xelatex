@@ -11,6 +11,8 @@
 \RequirePackage{eso-pic}
 \RequirePackage[bahasa]{babel}
 
+% Indent paragraf setelah section
+\RequirePackage{indentfirst}
 
 \RequirePackage{enumitem}
     \setlist{nolistsep}
@@ -27,12 +29,32 @@
 \RequirePackage{fancyhdr}
     \fancyhf{}
     \renewcommand{\headrulewidth}{0pt}
-    \lhead[\thepage]{}
-    \rhead[]{\thepage}
-    \pagestyle{fancy}
-    
+	\fancypagestyle{front}{%
+		\fancyhf{}
+		\cfoot{\thepage}
+	}
+	\fancypagestyle{main}{%
+		\fancyhf{}
+		\lhead[\thepage]{}
+		\rhead[]{\thepage}
+	}
+
+\makeatletter
+\renewcommand\frontmatter{%
+	\cleardoublepage
+	\@mainmatterfalse
+	\pagestyle{front}
+	\pagenumbering{roman}}
+
+\renewcommand\mainmatter{%
+	\cleardoublepage
+	\@mainmattertrue
+	\pagestyle{main}
+	\pagenumbering{arabic}}
+\makeatother
+
 \RequirePackage[hypcap=true]{caption}
-    \captionsetup{labelfont=bf, justification=justified, singlelinecheck=false, format=plain}
+    \captionsetup{labelfont=bf, justification=centering, singlelinecheck=false, format=plain}
 
 \RequirePackage{tabulary, booktabs, longtable, ltcaption, ltabptch}
 \RequirePackage[referable]{threeparttablex}
@@ -113,7 +135,7 @@
      \begin{center}
      \emph{Halaman ini sengaja dikosongkan}
      \end{center}
-     \newpage%    
+     \newpage%
 }%
 \def\cleardoublepage{%
         \clearpage%
@@ -145,8 +167,8 @@
 }
 
 \newcommand{\supervisorTwo}[2]{
-\renewcommand{\pembimbingDua}{#1}%
-\renewcommand{\nipPembimbingDua}{#2}%
+\newcommand{\pembimbingDua}{#1}%
+\newcommand{\nipPembimbingDua}{#2}%
 }
 
 \newcommand{\degree}[8]{
@@ -271,40 +293,40 @@
 \newenvironment{abstrak}{
 \addcontentsline{toc}{chapter}{ABSTRAK}
 \begin{centering}
-\textbf{\MakeUppercase{\judul}}
+\textbf{\MakeUppercase{\judul}} \\*[11pt]%
 \end{centering}
 
 \begin{tabular}{ll}
 Nama  & : \MakeUppercase{\penulis} \\
 NRP & : \nrp \\
 Jurusan  & : \jurusan \fakultasSingkatan \\
-Pembimbing I  & : \pembimbingSatu 
+Pembimbing I  & : \pembimbingSatu
 \ifdef{\pembimbingDua}{\\Pembimbing II  & : \pembimbingDua}{}
 \end{tabular}
 \\*[20pt]
 \begin{centering}
-\textbf{Abstrak}
-\end{centering}\\
+\textbf{Abstrak} \\*[11pt]%
+\end{centering}
 }{}
 
 % abstract
 \newenvironment{abstract}{
 \addcontentsline{toc}{chapter}{ABSTRACT}
 \begin{centering}
-\textbf{\MakeUppercase{\judulEnglish}}
+\textbf{\MakeUppercase{\judulEnglish}} \\*[11pt]%
 \end{centering}
 
 \begin{tabular}{ll}
 Name  & : \MakeUppercase{\penulis} \\
 NRP & : \nrp \\
 Major  & : \jurusanEnglish \fakultasSingkatan \\
-Supervisor I  & : \pembimbingSatu 
+Supervisor I  & : \pembimbingSatu
 \ifdef{\pembimbingDua}{\\Supervisor II  & : \pembimbingDua}{}
 \end{tabular}
 \\*[20pt]
 \begin{centering}
-\textbf{Abstract}
-\end{centering}\\
+\textbf{Abstract} \\*[11pt]%
+\end{centering}
 }{}
 
 \endinput
