@@ -291,6 +291,7 @@
 % Environment
 % abstrak
 \newenvironment{abstrak}{
+\cleardoublepage\phantomsection
 \addcontentsline{toc}{chapter}{ABSTRAK}
 \begin{centering}
 \textbf{\MakeUppercase{\judul}} \\*[11pt]%
@@ -311,6 +312,7 @@ Pembimbing I  & : \pembimbingSatu
 
 % abstract
 \newenvironment{abstract}{
+\cleardoublepage\phantomsection
 \addcontentsline{toc}{chapter}{ABSTRACT}
 \begin{centering}
 \textbf{\MakeUppercase{\judulEnglish}} \\*[11pt]%
