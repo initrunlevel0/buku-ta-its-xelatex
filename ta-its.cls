@@ -107,6 +107,10 @@
 
 
 \renewcommand*\thechapter{\Roman{chapter}}
+\renewcommand*\thesection{\arabic{chapter}.\arabic{section}}
+\renewcommand*\thesubsection{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
 \newcommand{\pic}{Gambar}
 \newcommand{\tab}{Tabel}
 \newcommand{\code}{Kode}
