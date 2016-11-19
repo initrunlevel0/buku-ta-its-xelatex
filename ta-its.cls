@@ -106,7 +106,7 @@
 }%
 
 
-\renewcommand*\thechapter{\arabic{chapter}}
+\renewcommand*\thechapter{\Roman{chapter}}
 \newcommand{\pic}{Gambar}
 \newcommand{\tab}{Tabel}
 \newcommand{\code}{Kode}
