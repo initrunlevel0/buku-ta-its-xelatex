@@ -115,6 +115,9 @@
 \newcommand{\tab}{Tabel}
 \newcommand{\code}{Kode}
 
+% Define a macro for doing double quotes
+\newcommand{\quotes}[1]{``#1''}
+
 \newcommand{\judul}{}
 \newcommand{\kodeTA}{}
 \newcommand{\judulEnglish}{}
