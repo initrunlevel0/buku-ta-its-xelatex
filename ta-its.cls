@@ -54,7 +54,7 @@
 \makeatother
 
 \RequirePackage[hypcap=true]{caption}
-    \captionsetup{labelfont=bf, justification=centering, singlelinecheck=false, format=plain}
+    \captionsetup{labelfont=bf, labelsep=space, justification=centering, singlelinecheck=false, format=plain}
 
 \RequirePackage{tabulary, booktabs, longtable, ltcaption, ltabptch}
 \RequirePackage[referable]{threeparttablex}
