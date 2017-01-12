@@ -54,7 +54,7 @@
 \makeatother
 
 \RequirePackage[hypcap=true]{caption}
-    \captionsetup{labelfont=bf, justification=centering, singlelinecheck=false, format=plain}
+    \captionsetup{labelfont=bf, labelsep=space, justification=centering, singlelinecheck=false, format=plain}
 
 \RequirePackage{tabulary, booktabs, longtable, ltcaption, ltabptch}
 \RequirePackage[referable]{threeparttablex}
@@ -106,10 +106,17 @@
 }%
 
 
-\renewcommand*\thechapter{\arabic{chapter}}
+\renewcommand*\thechapter{\Roman{chapter}}
+\renewcommand*\thesection{\arabic{chapter}.\arabic{section}}
+\renewcommand*\thesubsection{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
 \newcommand{\pic}{Gambar}
 \newcommand{\tab}{Tabel}
 \newcommand{\code}{Kode}
+
+% Define a macro for doing double quotes
+\newcommand{\quotes}[1]{``#1''}
 
 \newcommand{\judul}{}
 \newcommand{\kodeTA}{}
